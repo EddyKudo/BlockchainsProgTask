@@ -152,9 +152,17 @@ const colorsList = [
   "YellowGreen",
 ];
 
-ReactDOM.render(
-  {
-    /* <YourComponentGoesHere /> */
-  },
-  document.getElementById("root")
+const Typeahead = () => {
+    // JS section 
+
+    return(
+        <div className="wrap" id="root">
+            <h3>Typeahead input component</h3>
+            <p>Programming Task from Blockchains</p>
+            <input id="searchField" placeholder="Start typing the color name"></input>
+        </div>
+    )
+}
+
+ReactDOM.render(<Typeahead/>,document.getElementById("root")
 );
