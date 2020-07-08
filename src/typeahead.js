@@ -7,7 +7,7 @@ export const Typeahead = (props) => {
     const [display, setDisplay] = useState(false);
     const [search, setSearch] = useState("");
     const options = props.list;
-    // let optionsLow = options.map((i)=>i.toLowerCase())
+    let optionsLow = options.map((i)=>i.toLowerCase())
 
     const setColorTab  = (color) => {
         setSearch(color);
@@ -37,7 +37,7 @@ export const Typeahead = (props) => {
                 <input id="searchField" value={search}  onChange={(e)=>setSearch(e.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
                 {display && (
                     <div className="typeAheadContainer" ref={boxAroud}>
-                        {options.filter((i)=>i.indexOf(search) > 0).map((i)=>{
+                        {optionsLow.filter((i)=>i.indexOf(search.toLowerCase())>0).map((i)=>{
                             return <div onClick={()=> setColorTab(i)} tabIndex="0">
                                         <span>{i}</span>
                                     </div>
