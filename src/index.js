@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import PropTypes from 'prop-types';
 import ReactDOM from "react-dom";
 
@@ -156,12 +156,10 @@ const colorsList = [
 const Typeahead = props => {
     // JS section 
     const [display, setDisplay] = useState(false);
-    const [options, setOptions] = useState([]);
+    
     const [search, setSearch] = useState("");
 
-    useEffect(()=>{
-        setOptions(props.colorsList);
-    },[]);
+    const options = colorsList;
     
 
     return(
@@ -169,9 +167,15 @@ const Typeahead = props => {
             <div className="wrap">
                 <h3>Typeahead input component</h3>
                 <p>Programming Task from Blockchains</p>
-                <input id="searchField" placeholder="Start typing color name.."></input>
+                <input id="searchField" onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
                 {display && (
-                    <div></div>
+                    <div className="typeAheadContainer">
+                        {options.map((i)=>{
+                            return <div>
+                        <span>{i}</span>
+                            </div>
+                        })}
+                    </div>
                 )}
             </div>
         </div>
@@ -181,5 +185,5 @@ const Typeahead = props => {
 ReactDOM.render(<Typeahead/>,document.getElementById("root")
 );
 Typeahead.propTypes = {
-    colorsList : PropTypes.array
+    colors : PropTypes.array
 };
