@@ -5,7 +5,7 @@ export const Typeahead = (props) => {
 
     const [display, setDisplay] = useState(false);
     const [search, setSearch] = useState("");
-    const options = props.list.map((i)=>i.toLowerCase());
+    const options = props.list;
     // let optionsLow = options.map((i)=>i.toLowerCase());
     const boxAroud = useRef(null);
 
