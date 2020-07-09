@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect} from "react";
 import PropTypes from 'prop-types';
+import "./styles.scss"
 
 export const Typeahead = (props) => {
 
@@ -37,7 +38,7 @@ export const Typeahead = (props) => {
                     <div className="typeAheadContainer" ref={boxAroud}>
                         {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{
                             return <div onClick={()=> setColorTab(i)} tabIndex="0">
-                                        <div className ="colorsLine">{i}</div>
+                                        <span className ="colorsLine">{i}</span>
                                     </div>
                         })}
                     </div>

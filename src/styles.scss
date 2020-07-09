@@ -1,0 +1,27 @@
+body{
+    background-color: rgba($color: #725065ee, $alpha: 1.0)
+}
+.wrap {
+    text-align: center;
+    position: relative;
+}
+.typeAheadContainer{
+    width: 40%;
+    margin: auto;
+}
+div.typeAheadContainer div{
+    display: block;
+    background: rgba(7, 67, 179, 0.651);
+    margin: 4px auto;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 2px;
+}
+div.typeAheadContainer div:hover{
+    font-weight: bold;
+    color: #00b4cc;
+    background: rgba(1, 27, 77, 0.651);
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
