@@ -35,9 +35,9 @@ export const Typeahead = (props) => {
                 <input id="searchField" value={search}  onChange={(e)=>setSearch(e.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
                 {display && (
                     <div className="typeAheadContainer" ref={boxAroud}>
-                        {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{
+                        {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{                        
                             return <div onClick={()=> setColorTab(i)} tabIndex="0">
-                                        {i}
+                                        {<span dangerouslySetInnerHTML={{ __html: i.replace(new RegExp(search, "gi"), (match) => `<b>${match}</b>`) }} />}
                                     </div>
                         })}
                     </div>
