@@ -7,7 +7,6 @@ export const Typeahead = (props) => {
     const [display, setDisplay] = useState(false);
     const [search, setSearch] = useState("");
     const options = props.list;
-    // let optionsLow = options.map((i)=>i.toLowerCase());
     const boxAroud = useRef(null);
 
     const setColorTab  = (color) => {
@@ -38,7 +37,7 @@ export const Typeahead = (props) => {
                     <div className="typeAheadContainer" ref={boxAroud}>
                         {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{
                             return <div onClick={()=> setColorTab(i)} tabIndex="0">
-                                        <span className ="colorsLine">{i}</span>
+                                        {i}
                                     </div>
                         })}
                     </div>
