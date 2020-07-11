@@ -20,8 +20,11 @@ div.typeAheadContainer div{
     font-size: 1.2rem;
     border-radius: 2px;
 }
+div.typeAheadContainer div:focus {
+  background-color: rgb(255, 139, 30) ;
+  color: #ffffff;
+}
 div.typeAheadContainer div:hover{
-    font-weight: bold;
     color: #00b4cc;
     background: rgba(1, 27, 77, 0.651);
     cursor: pointer;

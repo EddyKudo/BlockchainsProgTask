@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect, useCallback} from "react";
 import PropTypes from 'prop-types';
 import "./styles.scss"
 
@@ -27,6 +27,19 @@ export const Typeahead = (props) => {
             setDisplay(false);
         }
     };
+
+    const escFunction = useCallback((event) => {
+        if(event.keyCode === 27) {
+        setDisplay(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener("keydown", escFunction, false);
+        return () => {
+        document.removeEventListener("keydown", escFunction, false);
+        };
+    }, [escFunction]);
 
     return(
             <div className="wrap" >
