@@ -41,20 +41,27 @@ export const Typeahead = (props) => {
         };
     }, [escFunction]);
 
+    const handleEnterKey = (event, color) => {
+        if(event.key === 'Enter') {
+        setSearch(color);
+        setDisplay(false);
+        }
+    };
+
     return(
             <div className="wrap" >
-                <h3>Typeahead input component</h3>
-                <p>Programming Task from Blockchains</p>
-                <input id="searchField" value={search}  onChange={(e)=>setSearch(e.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
-                {display && (
+                <h3>TYPEAHEAD INPUT COMPONENT</h3>
+                <p><b>BLOCKCHAINS</b> Programming Task</p>
+                <input id="searchField" value={search} onChange={(e)=>setSearch(e.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
+                {display && search !== "" ?(
                     <div className="typeAheadContainer" ref={boxAroud}>
-                        {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{                        
-                            return <div onClick={()=> setColorTab(i)} tabIndex="0">
+                        {options.filter((i)=>i.toLowerCase().indexOf(search.toLowerCase())>-1).map((i)=>{                   
+                            return <div onKeyDown={(event)=>handleEnterKey(event,i)} onClick={()=> setColorTab(i)} tabIndex="0">
                                         {<span dangerouslySetInnerHTML={{ __html: i.replace(new RegExp(search, "gi"), (match) => `<b>${match}</b>`) }} />}
                                     </div>
                         })}
                     </div>
-                )}
+                ): null}
             </div>
     )
 };
