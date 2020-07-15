@@ -50,7 +50,7 @@ export const Typeahead = (props) => {
             <div className="wrap" >
                 <h3>TypeAhead Input Component</h3>
                 <p>BLOCKCHAINS Programming Task</p>
-                <input autocomplete="off" id="searchField" value={search} onChange={(event)=>setSearch(event.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
+                <input autoComplete="off" id="searchField" value={search} onChange={(event)=>setSearch(event.target.value)} onClick={()=>setDisplay(!display)} placeholder="Start typing color name.."></input>
                 {display && search !== "" ?(
                     <div className="typeAheadContainer" ref={boxAroud}>
                         {options.filter((colorItem)=>colorItem.toLowerCase().indexOf(search.toLowerCase())>-1).map((colorItem)=>{                   
